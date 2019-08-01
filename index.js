@@ -14,6 +14,7 @@ var ON_DEATH = require('death'); //this is intentionally ugly
 
 ON_DEATH(function (signal, err) {
   client.destroy()
+  process.exit()
 })
 
 client.on('ready', () => {
@@ -66,13 +67,13 @@ client.on('message', message => {
       .setColor(message.member.colorRole.hexColor)
       .setTitle("**__Aide__**")
       .setDescription("Voici une aide bien précieuse jeune fur :3\n Préfix : `" + prefix + "`")
-      .addField(prefix + "furryirl", "Permet de voir un meme venant du subredit furry_irl.")
-      .addField(prefix + "owofy <votre texte>", "Permet de rendre votre texte plus cliché UwU.")
-      .addField(prefix + "fa <termes de la recherche>", "Recherchez vos arts anthro' favoris.")
-      .addField(prefix + "e621 <termes de la recherche>", "Je n'ai pas besoin de l'expliquer je pense.\n__FONCTIONNE SEULEMENT DANS UN CHANNEL NSFW__")
-      .addField(prefix + "info", "Permet d'avoir les infos du bot.")
-      .addField(prefix + "git", "Permet de voir le code source du bot.")
-      .addField(prefix + "furtest <nom>", "Permet de savoir si une personne est Furry")
+      .addField(prefix + "furryirl", "Permet de voir un meme venant du subredit furry_irl.", true)
+      .addField(prefix + "owofy <votre texte>", "Permet de rendre votre texte plus cliché UwU.", true)
+      .addField(prefix + "fa <termes de la recherche>", "Recherchez vos arts anthro' favoris.", true)
+      .addField(prefix + "e621 <termes de la recherche>", "Je n'ai pas besoin de l'expliquer je pense.\n__FONCTIONNE SEULEMENT DANS UN CHANNEL NSFW__", true)
+      .addField(prefix + "info", "Permet d'avoir les infos du bot.", true)
+      .addField(prefix + "git", "Permet de voir le code source du bot.", true)
+      .addField(prefix + "furtest <nom>", "Permet de savoir si une personne est Furry", true)
       .setFooter("Plugin created by Flo - Fan")
     message.author.send(embed)
     message.author.lastMessage.delete()
@@ -103,6 +104,7 @@ client.on('message', message => {
   }
 
   if (message.content.startsWith(prefix + "e621")) {
+    var args = message.content.split(" ")
     if (!message.channel.nsfw) {
       var embed = new Discord.RichEmbed()
         .setColor("#ff0000")
@@ -110,8 +112,18 @@ client.on('message', message => {
         .setDescription("Merci d'utiliser cette commande dans un channel NSFW.\nIl ne faudrait pas choquer les jeunes.")
       message.author.lastMessage.delete()
       message.channel.send(embed)
+      
+    }else if(args.length < 2){
+      var embed = new Discord.RichEmbed()
+        .setAuthor("E621", "https://cdn6.aptoide.com/imgs/0/7/f/07f23fe390d6d20f47839932ea23c678_icon.png?w=120", "http://e621.net")
+        .setColor("#0000ff")
+        .addField("Utilisation", "`"+ prefix +"e621 <tags>`", true)
+        // rating:s (safe; questionable; explicit)
+        .addField("Astuce", "Vous pouvez choisir le type de contenu voulu (NSFW ou non) avec ces tags : \n- `rating:s` : Safe / Pas de porno \n- `rating:q` : Questionable / Limite entre les deux  \n- `rating:e` : Explicit / Du yiff du yiff et encore du yiff")
+        .addField("Exemple", "`" + prefix + "e621 protogen rating:s`" + "\nVa rechercher une image de protogen qui est safe (sans porno).")
+      message.author.lastMessage.delete()
+      message.channel.send(embed)
     }else{
-      var args = message.content.split(" ")
       var str = ""
 
       for (var test in args) {
@@ -209,6 +221,7 @@ function ChangeRP() {
 }
 
 async function SearchE621(message, tags){
+  // rating:s (safe; questionable; explicit)
   try {
     const {
       body
@@ -222,9 +235,11 @@ async function SearchE621(message, tags){
       .setDescription("Posté par: " + body[randomnumber].author)
       .setImage(body[randomnumber].file_url)
       .addField("Autres informations :", ":star: " + body[randomnumber].fav_count)
+      .addField("URL", "https://e621.net/post/show/" + body[randomnumber].id)
       .setFooter(body[randomnumber].tags)
       .setURL(body[randomnumber].url)
-      .setColor(message.member.colorRole.hexColor)
+      .setColor("#0000ff")
+      // https://e621.net/post/show
     message.channel.send(embed)
   } catch (err) {
     return console.error(err);
