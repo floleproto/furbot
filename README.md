@@ -31,6 +31,11 @@ Execute in a new folder this :
 git clone https://gitlab.com/flofan/furbot
 ```
 
+### Configuration
+
+You need to add a token into the `config.json` file.
+To have a token, You must have an application registered : <https://discordapp.com/developers/applications/>.
+
 ### Run
 
 - Windows / Linux / Mac OS without screen
