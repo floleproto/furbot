@@ -2,6 +2,6 @@
     "configs":{
         "prefix" : "!",
         "token" : "your-token",
-        "language": "englisj"
+        "language": "english"
     }
 }
