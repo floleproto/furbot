@@ -40,12 +40,12 @@ To have a token, You must have an application registered : <https://discordapp.c
 
 - Windows / Linux / Mac OS without screen
 
-  ```bash
-  node index.js
-  ```
+```bash
+node index.js
+```
 
   or
 
-  ```bash
-  node .
-  ```
+```bash
+node .
+```
