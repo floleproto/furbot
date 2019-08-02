@@ -1,0 +1,36 @@
+{
+    "rpc":[
+        {
+            "text" : "TheOdd1sOut the Furry",
+            "type" : "WATCHING"
+        },
+        {
+            "text" : "Beep Boop I'm a protogen",
+            "type" : "STREAMING"
+        },
+        {
+            "text" : "Awooo",
+            "type" : "LISTENING"
+        },
+        {
+            "text" : "make pat pat",
+            "type" : "PLAYING"
+        },
+        {
+            "text" : "make Sergal cheese",
+            "type" : "STREAMING"
+        },
+        {
+            "text" : "make hugs & cuddles",
+            "type" : "PLAYING"
+        },
+        {
+            "text" : "OwO What's this",
+            "type" : "STREAMING"
+        },
+        {
+            "text" : "Hewwooooo",
+            "type" : "PLAYING"
+        }
+    ]
+}

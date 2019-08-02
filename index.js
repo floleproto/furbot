@@ -1,4 +1,3 @@
-
 const version = "1.0"
 
 const Discord = require('discord.js'); // https://www.npmjs.com/package/discord.js
@@ -9,12 +8,13 @@ const owo = require('@zuzak/owo') // https://www.npmjs.com/package/@zuzak/owo
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
-try{
+try {
   var language = JSON.parse(fs.readFileSync('language/' + config.configs.language + '.json', 'utf8'))
 
-}catch(err){
+} catch (err) {
   console.log(err)
-
+  client.destroy()
+  process.exit()
 }
 
 const prefix = config.configs.prefix
@@ -28,6 +28,11 @@ ON_DEATH(function (signal, err) {
 
 client.on('ready', () => {
   console.log(`Bot lancé : ${client.user.tag}.`);
+  client.user.setPresence({
+    game:{
+      name:"Bot started."
+    }
+  })
   setInterval(ChangeRP, 10000)
 });
 
@@ -74,13 +79,13 @@ client.on('message', message => {
 
   if (message.content.startsWith(prefix + "help")) {
     const embed = new Discord.RichEmbed()
-      .setColor(message.member.colorRole.hexColor)
+      .setColor("#0e2e33")
       .setTitle(language.help.title)
       .setDescription(language.help.description.replace("%prefix%", prefix))
-      for(var com in language.help.commands){
-        embed.addField(prefix + language.help.commands[com].usage, language.help.commands[com].description) 
-      }
-      embed.setFooter(language.help.footer)
+    for (var com in language.help.commands) {
+      embed.addField(prefix + language.help.commands[com].usage, language.help.commands[com].description)
+    }
+    embed.setFooter(language.help.footer)
     message.author.send(embed)
     message.author.lastMessage.delete()
   }
@@ -98,7 +103,7 @@ client.on('message', message => {
 
   if (message.content == prefix + "info") {
     let embed = new Discord.RichEmbed()
-      .setColor(message.member.colorRole.hexColor)
+      .setColor("#b0c400")
       .setTitle(language.info.title)
       .setDescription(language.info.description)
       .addField(language.info.version, version)
@@ -118,18 +123,18 @@ client.on('message', message => {
         .setDescription(language.e621.error.nonsfw)
       message.author.lastMessage.delete()
       message.channel.send(embed)
-      
-    }else if(args.length < 2){
+
+    } else if (args.length < 2) {
       var embed = new Discord.RichEmbed()
         .setAuthor(language.e621.author.name, language.e621.author.icon_url, language.e621.author.url)
         .setColor("#0000ff")
         .addField(language.e621.info.usage.title, language.e621.info.usage.text.replace("%prefix%", prefix), true)
         // rating:s (safe; questionable; explicit)
         .addField(language.e621.info.hint.title, language.e621.info.hint.text)
-        .addField(language.e621.info.example.title,language.e621.info.example.text.replace("%prefix%", prefix))
+        .addField(language.e621.info.example.title, language.e621.info.example.text.replace("%prefix%", prefix))
       message.author.lastMessage.delete()
       message.channel.send(embed)
-    }else{
+    } else {
       var str = ""
 
       for (var test in args) {
@@ -138,7 +143,7 @@ client.on('message', message => {
       }
       message.author.lastMessage.delete()
       SearchE621(message, str)
-    }    
+    }
   }
 
   if (message.content.startsWith(prefix + "furtest")) {
@@ -165,75 +170,25 @@ client.on('message', message => {
 
 function ChangeRP() {
 
-  var rdn = Math.floor((Math.random() * 5 + 1))
+  var rpcjson = JSON.parse(fs.readFileSync("richpresence.json", "utf8"))
+  var rdn = Math.floor((Math.random() * (rpcjson.rpc.length - 1) + 0))
 
-  switch (rdn) {
-    case 1:
-      client.user.setPresence({
-        game: {
-          name: "Happyness noises",
-          type: "STREAMING",
-          url: "https://gitlab.com/flofan/furbot"
-        }
-      })
-      break
-    case 2:
-      client.user.setPresence({
-        game: {
-          name: "OwO What's this",
-          type: "WATCHING",
-          url: "https://gitlab.com/flofan/furbot"
-        }
-      })
-      break
-    case 3:
-      client.user.setPresence({
-        game: {
-          name: "TheOdd1sout the furry",
-          type: "WATCHING",
-          url: "https://gitlab.com/flofan/furbot"
-        }
-      })
-      break
-    case 4:
-      client.user.setPresence({
-        game: {
-          name: "Beep Boop. I'm a protogen",
-          type: "STREAMING",
-          url: "https://gitlab.com/flofan/furbot"
-        }
-      })
-      break
-    case 5:
-      client.user.setPresence({
-        game: {
-          name: "Hug & cuddle",
-          type: "STREAMING",
-          url: "https://gitlab.com/flofan/furbot"
-        }
-      })
-      break
-
-
-    default:
-      client.user.setPresence({
-        game: {
-          name: "Beep Boop. I'm a protogen"
-        }
-      })
-      break;
-  }
-
+  client.user.setPresence({
+    game: {
+      name: rpcjson.rpc[rdn].text,
+      type: rpcjson.rpc[rdn].type
+    }
+  })
 }
 
-async function SearchE621(message, tags, args){
+async function SearchE621(message, tags, args) {
   // rating:s (safe; questionable; explicit)
   try {
     const {
       body
     } = await snekfetch
       .get('https://e621.net/post/index.json?tags=' + tags + '&limit=320')
-    
+
     if (!body.length) return message.channel.send(new Discord.RichEmbed()
       .setAuthor(language.e621.author.name, language.e621.author.icon_url, language.e621.author.url)
       .setColor("#ff0000")
@@ -250,8 +205,8 @@ async function SearchE621(message, tags, args){
       .addField(language.e621.success.url.title, language.e621.success.url.text.replace("%url%", "https://e621.net/post/show/" + body[randomnumber].id))
       .setFooter(language.e621.success.footer.replace("%tags%", body[randomnumber].tags))
       .setColor("#0000ff")
-      // https://e621.net/post/show
-      message.channel.send(embed)
+    // https://e621.net/post/show
+    message.channel.send(embed)
   } catch (err) {
     return console.error(err);
   }
@@ -266,7 +221,10 @@ function SearchFA(message, search) {
     Category,
     Rating
   } = require('furaffinity');
-  Search(search, {type: Type.Artwork, rating: Rating.General}).then(data => {
+  Search(search, {
+    type: Type.Artwork,
+    rating: Rating.General
+  }).then(data => {
     // let rnd = Math.floor(Math.random() * data.length)
     try {
       data[0].getSubmission().then(sub => {
@@ -328,7 +286,7 @@ async function SearchFurryIRL(message) {
       .addField(language.furryirl.success.other.title, language.furryirl.success.other.text.replace("%upvotes%", allowed[randomnumber].data.ups).replace("%comments%", allowed[randomnumber].data.num_comments))
       .setFooter(language.furryirl.success.footer)
       .setURL(allowed[randomnumber].data.url)
-      .setColor(message.member.colorRole.hexColor)
+      .setColor("#ef5704")
     message.channel.send(embed)
   } catch (err) {
     return console.error(err);
