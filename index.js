@@ -226,13 +226,13 @@ function ChangeRP() {
 
 }
 
-async function SearchE621(message, tags){
+async function SearchE621(message, tags, args){
   // rating:s (safe; questionable; explicit)
   try {
     const {
       body
     } = await snekfetch
-      .get('https://e621.net/post/index.json?tags=' + tags + '&limit=120')
+      .get('https://e621.net/post/index.json?tags=' + tags + '&limit=320')
     
     if (!body.length) return message.channel.send(new Discord.RichEmbed()
       .setAuthor(language.e621.author.name, language.e621.author.icon_url, language.e621.author.url)
@@ -263,15 +263,16 @@ function SearchFA(message, search) {
     Type,
     Species,
     Gender,
-    Category
+    Category,
+    Rating
   } = require('furaffinity');
-  Search(search, Type.Artwork).then(data => {
+  Search(search, {type: Type.Artwork, rating: Rating.General}).then(data => {
     // let rnd = Math.floor(Math.random() * data.length)
     try {
       data[0].getSubmission().then(sub => {
           const embed = new Discord.RichEmbed()
             .setAuthor(language.furaffinity.author.name, language.furaffinity.author.icon_url, language.furaffinity.author.url)
-            .setColor(message.member.colorRole.hexColor)
+            .setColor("#be8e6b")
             .setTitle(sub.title)
             .setDescription(language.furaffinity.success.description.replace("%author%", sub.author.name))
             .setImage(sub.image.url)
