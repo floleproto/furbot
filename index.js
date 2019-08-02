@@ -77,8 +77,8 @@ client.on('message', message => {
       .setColor(message.member.colorRole.hexColor)
       .setTitle(language.help.title)
       .setDescription(language.help.description.replace("%prefix%", prefix))
-      for(var commands in language.help.commands){
-        embed.addField(prefix + commands.usage, commands.description, true) 
+      for(var com in language.help.commands){
+        embed.addField(prefix + language.help.commands[com].usage, language.help.commands[com].description) 
       }
       embed.setFooter(language.help.footer)
     message.author.send(embed)

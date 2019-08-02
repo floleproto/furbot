@@ -1,6 +1,6 @@
 {
     "global": {
-        "error": ":warning: Erreur :warning:"
+        "error": ":warning: Error :warning:"
     },
     "e621": {
         "author": {
@@ -9,28 +9,28 @@
             "url": "http://e621.net"
         },
         "error": {
-            "notfound": "404 : Rien n'a été trouvé",
-            "retry": "Veuillez réessailler avec de nouveaux termes.",
-            "nonsfw": "Merci d'utiliser cette commande dans un channel NSFW.\nIl ne faudrait pas choquer les jeunes."
+            "notfound": "404 : Nothing was found",
+            "retry": "Please try again with new search terms.",
+            "nonsfw": "Please use this command into an NSFW channel.\nYoung people should not be shocked."
         },
         "info": {
             "usage": {
-                "title": "Utilisations",
+                "title": "Usage",
                 "text": "%prefix%e621 <tags>"
             },
             "hint": {
-                "title": "Astuces",
-                "text": "Vous pouvez choisir le type de contenu voulu (NSFW ou non) avec ces tags : \n- `rating:s` : Safe \n> Pas de porno \n- `rating:q` : Questionable \n> Limite entre les deux (pas explicite)  \n- `rating:e` : Explicit \n> Du yiff du yiff et encore du yiff"
+                "title": "Hint",
+                "text": "You can choose the type of content you want (NSFW or not) with these tags : \n- `rating:s` : Safe \n- `rating:q` : Questionable\n- `rating:e` : Explicit"
             },
             "example": {
-                "title": "Exemple",
-                "text": "`%prefix%e621 protogen rating:s` \nVa rechercher une image de protogen qui est safe (sans porno)."
+                "title": "Example",
+                "text": "`%prefix%e621 protogen rating:s` \nSearch a protogen picture without beeing sexual."
             }
         },
         "success": {
-            "description": "Posté par : %author%",
+            "description": "Posted by : %author%",
             "other": {
-                "title": "Autres informations",
+                "title": "Other informations",
                 "text": ":star: %fav%"
             },
             "url": {
@@ -48,30 +48,30 @@
         },
         "error": {
             "details": {
-                "title": "Détails",
-                "text": "%err%\n\n Recherche causant l'erreur : `%search%`"
+                "title": "Details",
+                "text": "%err%\n\n Research causing the error: `%search%`"
             },
-            "notfound": "404 : Aucune image de trouvée",
+            "notfound": "404 : No image was found",
             "retry": {
-                "title": "Veuillez réessailler avec d'autres mots",
-                "text": "Si l'erreur persiste, ouvrez une issue sur le git FurBot (%prefix%git)"
+                "title": "Please retry with another words",
+                "text": "If the error persists, please open an issue on the Furbot's git. (%prefix%git)"
             }
         },
         "info": {
-            "noargument": "Il manque le terme de votre recherche.",
+            "noargument": "The search terms is missing",
             "example": {
                 "title": "Example",
-                "text": "`%prefix%fa protogen`\nPermet de rechercher une image relative aux êtres sublimes que sont les protogens sur FurAffinity"
+                "text": "`%prefix%fa protogen`\nSearch an protogen picture on Furaffinity."
             }
         },
         "success": {
-            "description": "Fait par : %author%",
+            "description": "Created by : %author%",
             "stats": {
                 "title": " Stats ",
                 "text": ":star: %favorites% :pencil: %comments% :eye: %views%"
             },
             "info": {
-                "title": " Informations spécifiques ",
+                "title": " Specific informations ",
                 "text": "Espèce : %species% \nGenre : %gender% \nCatégorie : %category%"
             },
             "footer": "Tags : %tags%"
@@ -79,33 +79,33 @@
     },
     "furtest": {
         "title": "Furtest",
-        "description": "%player% est Furry à %percent%%"
+        "description": "%player% is Furry at %percent%%"
     },
     "help": {
-        "title": "**__AIDE__**",
-        "description": "Voici une aide bien précieuse jeune fur :3\nPréfix : %prefix%",
-        "footer": "Plugin crée par Flo - Fan",
+        "title": "**__HELP__**",
+        "description": "Here is a precious help young fur :3\nPrefix : %prefix%",
+        "footer": "Plugin created by Flo - Fan",
         "commands": [{
             "usage": "furryirl",
-            "description": "Permet de voir un meme venant du subredit furry_irl."
+            "description": "Show a meme comming from subreddit furry_irl"
         }, {
-            "usage": "owofy <votre texte>",
-            "description": "Permet de rendre votre texte plus cliché UwU."
+            "usage": "owofy <text>",
+            "description": "owofy your text UwU."
         }, {
-            "usage": "fa <termes de la recherche>",
-            "description": "Recherchez vos arts anthro' favoris."
+            "usage": "fa <search terms>",
+            "description": "Search your favorite antropomorphic picture comming from FurAffinity."
         }, {
-            "usage": "e621 <termes de la recherche>",
-            "description": "Je n'ai pas besoin de l'expliquer je pense.\n__FONCTIONNE SEULEMENT DANS UN CHANNEL NSFW__"
+            "usage": "e621 <search terms>",
+            "description": "I don't need to explain what it does I think ;w;\n__ONLY WORK INTO AN NSFW CHANNEL__"
         }, {
             "usage": "info",
-            "description": "Permet d'avoir les infos du bot."
+            "description": "Show some informations"
         }, {
             "usage": "git",
-            "description": "Permet de voir le code source du bot."
+            "description": "Show the bot's source code"
         }, {
-            "usage": "furtest <nom>",
-            "description": "Permet de savoir si une personne est Furry"
+            "usage": "furtest <name>",
+            "description": "Check if someone is a Furry ||like TheOdd1sOut||"
         }]
     },
     "git": {
@@ -114,32 +114,32 @@
             "icon_url": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/155/thumb_bigger_formation-gitlab.png",
             "url": "https://about.gitlab.com"
         },
-        "description": "Voici l'URL du code source :  https://gitlab.com/flofan/furbot",
+        "description": "Git URL : :  https://gitlab.com/flofan/furbot",
         "package": {
-            "title": "Packets utilisées",
+            "title": "Package used",
             "text": "- discord.js : https://www.npmjs.com/package/discord.js \n- snekfetch : https://www.npmjs.com/package/snekfetch \n- @zuzak/owo : https://www.npmjs.com/package/@zuzak/owo \n- fur-node : https://www.npmjs.com/package/furaffinity \n- death : https://www.npmjs.com/package/death"
         }
     },
     "info": {
         "title": "**__Informations__**",
-        "description": "Informations concernant le bot",
+        "description": "Information about the bot",
         "version": "Version",
         "ping": "Ping",
         "creator": {
-            "name": "Bot crée par",
+            "name": "Bot created by",
             "text": "Flo - Fan"
         },
-        "footer": "Pour voir le code source : %prefix%git"
+        "footer": "To show the source code : %prefix%git"
     },
     "furryirl": {
         "author":{"name" : "furry_irl", "icon_url": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-reddit-square2-512.png" , "url" : "https://www.reddit.com/r/furry_irl/"},
         "error": {
-            "description": "Plus rien de récent n'est disponible"
+            "description": "Nothing was wound sorry"
         },
         "success": {
-            "description": "Posté par : %author%",
+            "description": "Posted by : %author%",
             "other": {
-                "title": "Autres informations",
+                "title": "Other informations",
                 "text": ":arrow_up: %upvotes% :pencil: %comments%"
             },
             "footer": ""
