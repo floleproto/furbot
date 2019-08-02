@@ -1,0 +1,148 @@
+{
+    "global": {
+        "error": ":warning: Erreur :warning:"
+    },
+    "e621": {
+        "author": {
+            "name": "E621",
+            "icon_url": "https://cdn6.aptoide.com/imgs/0/7/f/07f23fe390d6d20f47839932ea23c678_icon.png?w=120",
+            "url": "http://e621.net"
+        },
+        "error": {
+            "notfound": "404 : Rien n'a été trouvé",
+            "retry": "Veuillez réessailler avec de nouveaux termes.",
+            "nonsfw": "Merci d'utiliser cette commande dans un channel NSFW.\nIl ne faudrait pas choquer les jeunes."
+        },
+        "info": {
+            "usage": {
+                "title": "Utilisations",
+                "text": "%prefix%e621 <tags>"
+            },
+            "hint": {
+                "title": "Astuces",
+                "text": "Vous pouvez choisir le type de contenu voulu (NSFW ou non) avec ces tags : \n- `rating:s` : Safe / Pas de porno \n- `rating:q` : Questionable / Limite entre les deux  \n- `rating:e` : Explicit / Du yiff du yiff et encore du yiff"
+            },
+            "example": {
+                "title": "Exemple",
+                "text": "%prefix%e621 protogen rating:s` \nVa rechercher une image de protogen qui est safe (sans porno)."
+            }
+        },
+        "success": {
+            "description": "Posté par : %author%",
+            "other": {
+                "title": "Autres informations",
+                "text": ":star: %fav%"
+            },
+            "url": {
+                "title": "URL",
+                "text": "%url%"
+            },
+            "footer": "Tags : %tag%"
+        }
+    },
+    "furaffinity": {
+        "author": {
+            "name": "FurAffinity",
+            "icon_url": "https://i1.wp.com/irishfurries.com/wp-content/uploads/2016/05/fa_logo.png?fit=200%2C200&ssl=1",
+            "url": "http://www.furaffinity.net/"
+        },
+        "error": {
+            "details": {
+                "title": "Détails",
+                "text": "%err%\n\n Recherche causant l'erreur : `%search%`"
+            },
+            "notfound": "404 : Aucune image de trouvée",
+            "retry": {
+                "title": "Veuillez réessailler avec d'autres mots",
+                "text": "Si l'erreur persiste, ouvrez une issue sur le git FurBot (%prefix%git)"
+            }
+        },
+        "info": {
+            "noargument": "Il manque le terme de votre recherche.",
+            "example": {
+                "title": "Example",
+                "text": "`%prefix%fa protogen`\nPermet de rechercher une image relative aux êtres sublimes que sont les protogens sur FurAffinity"
+            }
+        },
+        "success": {
+            "description": "Fait par : %author%",
+            "stats": {
+                "title": " Stats ",
+                "text": ":star: %favorites% :pencil: %comments% :eye: %views%"
+            },
+            "info": {
+                "title": " Informations spécifiques ",
+                "text": "Espèce : %species% \nGenre : %gender% \nCatégorie : %category%"
+            },
+            "footer": "Tags : %tags%"
+        }
+    },
+    "furtest": {
+        "title": "Furtest",
+        "description": "%player% est Furry à %percent%%"
+    },
+    "help": {
+        "title": "**__AIDE__**",
+        "description": "Voici une aide bien précieuse jeune fur :3\nPréfix : %prefix%",
+        "footer": "Plugin crée par Flo - Fan",
+        "commands": [{
+            "usage": "furryirl",
+            "description": "Permet de voir un meme venant du subredit furry_irl."
+        }, {
+            "usage": "owofy <votre texte>",
+            "description": "Permet de rendre votre texte plus cliché UwU."
+        }, {
+            "usage": "fa <termes de la recherche>",
+            "description": "Recherchez vos arts anthro' favoris."
+        }, {
+            "usage": "e621 <termes de la recherche>",
+            "description": "Je n'ai pas besoin de l'expliquer je pense.\n__FONCTIONNE SEULEMENT DANS UN CHANNEL NSFW__"
+        }, {
+            "usage": "info",
+            "description": "Permet d'avoir les infos du bot."
+        }, {
+            "usage": "git",
+            "description": "Permet de voir le code source du bot."
+        }, {
+            "usage": "furtest <nom>",
+            "description": "Permet de savoir si une personne est Furry"
+        }]
+    },
+    "git": {
+        "author": {
+            "name": "GitLab",
+            "icon_url": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/155/thumb_bigger_formation-gitlab.png",
+            "url": "https://about.gitlab.com"
+        },
+        "description": "Voici l'URL du code source :  https://gitlab.com/flofan/furbot",
+        "package": {
+            "title": "Packets utilisées",
+            "text": "- discord.js : https://www.npmjs.com/package/discord.js \n- snekfetch : https://www.npmjs.com/package/snekfetch \n- @zuzak/owo : https://www.npmjs.com/package/@zuzak/owo \n- fur-node : https://www.npmjs.com/package/furaffinity \n- death : https://www.npmjs.com/package/death"
+        }
+    },
+    "info": {
+        "title": "**__Informations__**",
+        "description": "Informations relatives aux bots",
+        "version": "Version",
+        "ping": "Ping",
+        "creator": {
+            "name": "Bot crée par",
+            "text": "Flo - Fan"
+        },
+        "footer": "Pour voir le code source : %prefix%git"
+    },
+    "furryirl": {
+        "author":{"name" : "furry_irl", "icon_url": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-reddit-square2-512.png" , "url" : "https://www.reddit.com/r/furry_irl/"},
+        "error": {
+            "description": "Plus rien de récent n'est disponible"
+        },
+        "success": {
+            "description": "Posté par : %author%",
+            "other": {
+                "title": "Autres informations",
+                "text": ":arrow_up: %upvotes% :pencil: %comments%"
+            },
+            "footer": ""
+        }
+    }
+}
