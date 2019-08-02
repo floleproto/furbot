@@ -20,11 +20,11 @@
             },
             "hint": {
                 "title": "Astuces",
-                "text": "Vous pouvez choisir le type de contenu voulu (NSFW ou non) avec ces tags : \n- `rating:s` : Safe / Pas de porno \n- `rating:q` : Questionable / Limite entre les deux  \n- `rating:e` : Explicit / Du yiff du yiff et encore du yiff"
+                "text": "Vous pouvez choisir le type de contenu voulu (NSFW ou non) avec ces tags : \n- `rating:s` : Safe \n> Pas de porno \n- `rating:q` : Questionable \n> Limite entre les deux (pas explicite)  \n- `rating:e` : Explicit \n> Du yiff du yiff et encore du yiff"
             },
             "example": {
                 "title": "Exemple",
-                "text": "%prefix%e621 protogen rating:s` \nVa rechercher une image de protogen qui est safe (sans porno)."
+                "text": "`%prefix%e621 protogen rating:s` \nVa rechercher une image de protogen qui est safe (sans porno)."
             }
         },
         "success": {
@@ -37,7 +37,7 @@
                 "title": "URL",
                 "text": "%url%"
             },
-            "footer": "Tags : %tag%"
+            "footer": "Tags : %tags%"
         }
     },
     "furaffinity": {

@@ -10,7 +10,7 @@ var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 try{
-  var language = JSON.parse(fs.readFileSync(config.configs.language + '.json', 'utf8'))
+  var language = JSON.parse(fs.readFileSync('language/' + config.configs.language + '.json', 'utf8'))
 
 }catch(err){
   console.log(err)
@@ -55,8 +55,9 @@ client.on('message', message => {
       var embed = new Discord.RichEmbed()
         .setColor("#ff0000")
         .setTitle(language.global.error)
-        .setDescription(language.global.noargument)
+        .setDescription(language.furaffinity.info.noargument)
         .addField(language.furaffinity.info.example.title, language.furaffinity.info.example.text.replace("%prefix%", prefix))
+      message.author.lastMessage.delete()
       message.channel.send(embed)
       return
     }
@@ -261,7 +262,8 @@ function SearchFA(message, search) {
     Search,
     Type,
     Species,
-    Gender
+    Gender,
+    Category
   } = require('furaffinity');
   Search(search, Type.Artwork).then(data => {
     // let rnd = Math.floor(Math.random() * data.length)
@@ -271,12 +273,12 @@ function SearchFA(message, search) {
             .setAuthor(language.furaffinity.author.name, language.furaffinity.author.icon_url, language.furaffinity.author.url)
             .setColor(message.member.colorRole.hexColor)
             .setTitle(sub.title)
-            .setDescription(language.furaffinity.success.description.replace("%author%", sub.author))
+            .setDescription(language.furaffinity.success.description.replace("%author%", sub.author.name))
             .setImage(sub.image.url)
             .addField(language.furaffinity.success.stats.title, language.furaffinity.success.stats.text.replace("%favorites%", sub.stats.favorites).replace("%comments%", sub.stats.comments).replace("%views%", sub.stats.views))
-            .addField(language.furaffinity.success.info.title, language.furaffinity.success.info.text.replace("%species%", Species[sub.content.species]).replace("%category%", Species[sub.content.category]).replace("%gender%", Species[sub.content.gender]))
+            .addField(language.furaffinity.success.info.title, language.furaffinity.success.info.text.replace("%species%", Species[sub.content.species]).replace("%category%", Category[sub.content.category]).replace("%gender%", Gender[sub.content.gender]))
             .setURL(sub.url)
-            .setFooter(language.furaffinity.success.footer.replace("%tags%" + sub.keywords))
+            .setFooter(language.furaffinity.success.footer.replace("%tags%", sub.keywords))
           message.channel.send(embed)
         })
         .catch(err => {
