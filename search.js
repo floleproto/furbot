@@ -1,4 +1,10 @@
 const snekfetch = require('snekfetch'); // https://www.npmjs.com/package/snekfetch
+const Discord = require('discord.js'); // https://www.npmjs.com/package/discord.js
+
+var fs = require('fs');
+var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var language = JSON.parse(fs.readFileSync('language/' + config.configs.language + '.json', 'utf8'))
+
 var Search = {
     SearchE621 : async function(message, tags, args) {
         // rating:s (safe; questionable; explicit)

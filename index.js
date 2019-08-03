@@ -188,7 +188,7 @@ client.on('message', message => {
 
       var embed = new Discord.RichEmbed()
         .setTitle(language.furtest.title)
-        .setDescription(language.furtest.title.description.replace("%player%", args[1]).replace("%percent%", i))
+        .setDescription(language.furtest.description.replace("%player%", args[1]).replace("%percent%", i))
       // Change color
       if (i < 50) {
         embed.setColor("#ff0000")
