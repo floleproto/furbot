@@ -45,7 +45,7 @@ var Search = {
             Gender,
             Category,
             Rating
-        } = require('furaffinity');
+        } = require('./lib/fa_integration');
         Search(search, {
             type: Type.Artwork,
             rating: Rating.General
@@ -70,7 +70,7 @@ var Search = {
                             .setColor("#ff0000")
                             .setTitle(language.global.error)
                             .addField(language.furaffinity.error.details.title, language.furaffinity.error.details.text.replace("%err%", err).replace("%search%", search))
-                            .addField(language.furaffinity.error.retry.title, language.furaffinity.error.retry.text.replace("%prefix%", prefix))
+                            .addField(language.furaffinity.error.retry.title, language.furaffinity.error.retry.text.replace("%prefix%", config.configs.prefix))
                         message.channel.send(embed)
                         console.error(err)
                     })

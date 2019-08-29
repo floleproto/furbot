@@ -1,0 +1,31 @@
+{
+  "name": "furfag-bot",
+  "version": "1.0.0",
+  "description": "A discord bot for furry",
+  "main": "index.js",
+  "dependencies": {
+    "death": "^1.1.0",
+    "fotology-x": "^1.2.4",
+    "snekfetch": "^4.0.4",
+    "discord.js": "^11.5.1",
+    "@types/bluebird": "^3.5.27",
+    "@types/node": "^12.7.2",
+    "@types/request": "^2.48.2",
+    "fast-html-parser": "^1.0.1",
+    "owofy": "^0.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/flofan/furbot.git"
+  },
+  "author": "Flo - Fan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/flofan/furbot/issues"
+  },
+  "homepage": "https://gitlab.com/flofan/furbot#readme"
+}
