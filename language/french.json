@@ -117,7 +117,7 @@
         "description": "Voici l'URL du code source :  https://gitlab.com/flofan/furbot",
         "package": {
             "title": "Packets utilisées",
-            "text": "- discord.js : https://www.npmjs.com/package/discord.js \n- snekfetch : https://www.npmjs.com/package/snekfetch \n- @zuzak/owo : https://www.npmjs.com/package/@zuzak/owo \n- fur-node : https://www.npmjs.com/package/furaffinity \n- death : https://www.npmjs.com/package/death"
+            "text": "- discord.js : https://www.npmjs.com/package/discord.js \n- snekfetch : https://www.npmjs.com/package/snekfetch \n- owofy : https://www.npmjs.com/package/owofy \n- fur-node (modifié) : https://www.npmjs.com/package/furaffinity \n- death : https://www.npmjs.com/package/death"
         }
     },
     "info": {

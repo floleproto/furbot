@@ -1,5 +1,4 @@
-const search = require('../search.js')
-const Config = require("../config.json");
+const Discord = require("discord.js")
 
 module.exports.run = async (client, msg, args) => {
     // Check if somebody is Furry
